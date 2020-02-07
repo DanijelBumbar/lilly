@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    {% include 'partials/nav.html.twig' %}
+
+    <div class="container">
+        {{ form_start(form) }}
+        <br>
+        <h3 class="text-primary">Neue user hinzufügen</h3>
+
+        <p class="text-primary">Bitte Ausfüllen.</p>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.firstname, {'attr': {'class': 'form-control', 'placeholder' : 'Vorname *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.lastname, {'attr': {'class': 'form-control', 'placeholder' : 'Nachname *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.address, {'attr': {'class': 'form-control', 'placeholder' : 'Straße, Nr. *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.postal, {'attr': {'class': 'form-control', 'placeholder' : 'PLZ *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.place, {'attr': {'class': 'form-control', 'placeholder' : 'Ort *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.country, {'attr': {'class': 'form-control', 'placeholder' : 'Land *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : 'Telefon *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.birthday, {'attr': {'class': 'form-control', 'placeholder' : 'Birthday *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder' : 'E-Mail *'}}) }}
+        </div>
+
+        <div class="float-right">
+            * Pflichtfelder
+        </div>
+
+        <div class="clearfix"></div>
+
+        <br>
+
+        {{ form_row(form.save, {'attr': {'class': 'btn btn-secondary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        #reg_form_title_0 + label {
+            margin-right: 10px;
+        }
+
+        .input-group.mb-3 div {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/regform.min.js') }}"></script>
+{% endblock %}

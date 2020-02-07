@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    {% include 'partials/nav.html.twig' %}
+
+    <div class="container">
+        {{ form_start(form) }}
+        <br>
+        <h3 class="text-primary">User Bearbeiten</h3>
+
+        <p class="text-primary">Bitte editieren.</p>
+
+        <div class="input-group mb-3">
+            <label>Vorname</label>
+            {{ form_row(form.firstname, {'attr': {'class': 'form-control', 'placeholder' : 'Vorname *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>Nachname</label>
+            {{ form_row(form.lastname, {'attr': {'class': 'form-control', 'placeholder' : 'Nachname *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>Adresse und Nummer</label>
+            {{ form_row(form.address, {'attr': {'class': 'form-control', 'placeholder' : 'Straße, Nr. *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>PLZ</label>
+            {{ form_row(form.postal, {'attr': {'class': 'form-control', 'placeholder' : 'PLZ *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>Ort</label>
+            {{ form_row(form.place, {'attr': {'class': 'form-control', 'placeholder' : 'Ort *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>Land</label>
+            {{ form_row(form.country, {'attr': {'class': 'form-control', 'placeholder' : 'Land *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>Handynummer</label>
+            {{ form_row(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : 'Telefon *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>Geburtsdatum</label>
+            {{ form_row(form.birthday, {'attr': {'class': 'form-control', 'placeholder' : 'Birthday *'}}) }}
+        </div>
+
+        <div class="input-group mb-3">
+            <label>E-Mail</label>
+            {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder' : 'E-Mail *'}}) }}
+        </div>
+
+        <div class="float-right">
+            * Pflichtfelder
+        </div>
+
+        <div class="clearfix"></div>
+
+        <br>
+
+        {{ form_row(form.save, {'attr': {'class': 'btn btn-secondary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        #reg_form_title_0 + label {
+            margin-right: 10px;
+        }
+
+        .input-group.mb-3 div {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/regform.min.js') }}"></script>
+{% endblock %}

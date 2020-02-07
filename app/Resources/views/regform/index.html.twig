@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'partials/nav.html.twig' %}
+
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                Adressbuch
+            </div>
+            <div class="card-body">
+                <h5 class="card-text">BE basiert auf Symfony 3.4 und SQLite</h5>
+                <p class="card-title">FE basiert auf Bootstrap 4 </p>
+            </div>
+        </div>
+        <br>
+
+        {% if users|length > 0 %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Vorname</th>
+                <th scope="col">Nachname</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Plz</th>
+                <th scope="col">Ort</th>
+                <th scope="col">Land</th>
+                <th scope="col">...</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+
+                <tr>
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.postal }}</td>
+                    <td>{{ user.place }}</td>
+                    <td>{{ user.country }}</td>
+                    <td>...</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('edit', {'id':user.id}) }}" role="button">Bearbeitung </a>
+                        <a class="btn btn-danger" href="{{ path('delete', {'id':user.id}) }}" role="button">Entfernen</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>Keine ergebnise.  Bitte User <a href="{{ path('register') }}">Hinzufügen</a>.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}
